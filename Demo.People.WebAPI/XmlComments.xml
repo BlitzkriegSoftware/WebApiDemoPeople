@@ -1,0 +1,369 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Demo.People.WebAPI</name>
+    </assembly>
+    <members>
+        <member name="T:Demo.People.WebAPI.SwaggerConfig">
+            <summary>
+            Swagger Configuration
+            </summary>
+        </member>
+        <member name="M:Demo.People.WebAPI.SwaggerConfig.Register">
+            <summary>
+            Entry Point
+            </summary>
+        </member>
+        <member name="T:Demo.People.WebAPI.WebApiConfig">
+            <summary>
+            WebAPI Configuration
+            </summary>
+        </member>
+        <member name="M:Demo.People.WebAPI.WebApiConfig.Register(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Entry Point
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="T:Demo.People.WebAPI.Controllers.ErrorSimulatorController">
+            <summary>
+            Error Simulator Controller
+            </summary>
+        </member>
+        <member name="M:Demo.People.WebAPI.Controllers.ErrorSimulatorController.Error400">
+            <summary>
+            Simulate Error: 400 with our new validator exception
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Demo.People.WebAPI.Controllers.ErrorSimulatorController.Error500">
+            <summary>
+            Simulate: Error 500 (Invalid Operation Exception)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Demo.People.WebAPI.Controllers.PersonController">
+            <summary>
+            Controller: Person
+            </summary>
+        </member>
+        <member name="P:Demo.People.WebAPI.Controllers.PersonController.DbPath">
+            <summary>
+            Database Path
+            </summary>
+        </member>
+        <member name="P:Demo.People.WebAPI.Controllers.PersonController.Repository">
+            <summary>
+            People Repository
+            </summary>
+        </member>
+        <member name="M:Demo.People.WebAPI.Controllers.PersonController.Search(System.String)">
+            <summary>
+            Do a search using contains on First, Last, Email
+            </summary>
+            <param name="searchString">Thing to search for</param>
+            <returns>Search results</returns>
+        </member>
+        <member name="M:Demo.People.WebAPI.Controllers.PersonController.AddUpdate(Demo.People.Repository.Models.Person)">
+            <summary>
+            Add/Update a Person
+            </summary>
+            <param name="model">Person</param>
+            <returns>PK</returns>
+        </member>
+        <member name="M:Demo.People.WebAPI.Controllers.PersonController.Delete(System.Int32)">
+            <summary>
+            Delete a person
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Demo.People.WebAPI.Controllers.PersonController.Exists(System.Int32)">
+            <summary>
+            Does person exist?
+            </summary>
+            <param name="id">PK</param>
+            <returns>True if so</returns>
+        </member>
+        <member name="M:Demo.People.WebAPI.Controllers.PersonController.GetById(System.Int32)">
+            <summary>
+            Get Person by Id
+            </summary>
+            <param name="id">PK</param>
+            <returns>Model</returns>
+        </member>
+        <member name="T:Demo.People.WebAPI.Controllers.VersionController">
+            <summary>
+            Version of API
+            </summary>
+        </member>
+        <member name="M:Demo.People.WebAPI.Controllers.VersionController.Version">
+            <summary>
+            Show the Version Information for the current API
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Demo.People.WebAPI.WebApiApplication">
+            <summary>
+            WebAPI Application
+            </summary>
+        </member>
+        <member name="M:Demo.People.WebAPI.WebApiApplication.Application_Start">
+            <summary>
+            Start (entry point)
+            </summary>
+        </member>
+        <member name="T:Demo.People.WebAPI.Library.CustomErrorConfigHandler">
+            <summary>
+            Reads the  web.config, system.web, customErrors section to see the mode
+            </summary>
+        </member>
+        <member name="P:Demo.People.WebAPI.Library.CustomErrorConfigHandler.ShouldSupplyFullException">
+            <summary>
+            If mode is OFF, this is true
+            </summary>
+        </member>
+        <member name="T:Demo.People.WebAPI.Library.GlobalExceptionHandler">
+            <summary>
+            Global Error Handling -> Provide an exception handler
+            </summary>
+        </member>
+        <member name="M:Demo.People.WebAPI.Library.GlobalExceptionHandler.Handle(System.Web.Http.ExceptionHandling.ExceptionHandlerContext)">
+            <summary>
+            Handle
+            </summary>
+            <param name="context">Call context</param>
+        </member>
+        <member name="M:Demo.People.WebAPI.Library.GlobalExceptionHandler.ShouldHandle(System.Web.Http.ExceptionHandling.ExceptionHandlerContext)">
+            <summary>
+            Should handle the exception?
+            </summary>
+            <param name="context">ExceptionHandlerContext</param>
+            <returns>Always true</returns>
+        </member>
+        <member name="T:Demo.People.WebAPI.Library.NoCacheHeaderAttribute">
+            <summary>
+            No Cache Attribute for WebAPI
+            </summary>
+        </member>
+        <member name="M:Demo.People.WebAPI.Library.NoCacheHeaderAttribute.#ctor">
+            <summary>
+            CTOR
+            </summary>
+        </member>
+        <member name="M:Demo.People.WebAPI.Library.NoCacheHeaderAttribute.OnActionExecuted(System.Web.Http.Filters.HttpActionExecutedContext)">
+            <summary>
+            Actual Action
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:Demo.People.WebAPI.Library.TextPlainErrorResult">
+            <summary>
+            Global Error Handling -> Response Formatter
+            </summary>
+        </member>
+        <member name="P:Demo.People.WebAPI.Library.TextPlainErrorResult.StatusCode">
+            <summary>
+            Http Status Code
+            </summary>
+        </member>
+        <member name="P:Demo.People.WebAPI.Library.TextPlainErrorResult.Request">
+            <summary>
+            Request
+            </summary>
+        </member>
+        <member name="P:Demo.People.WebAPI.Library.TextPlainErrorResult.Content">
+            <summary>
+            Content
+            </summary>
+        </member>
+        <member name="M:Demo.People.WebAPI.Library.TextPlainErrorResult.System#Web#Http#IHttpActionResult#ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+            Execute Async
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Demo.People.WebAPI.Library.TraceExceptionLogger">
+            <summary>
+            Trace exception logger
+            </summary>
+        </member>
+        <member name="M:Demo.People.WebAPI.Library.TraceExceptionLogger.Log(System.Web.Http.ExceptionHandling.ExceptionLoggerContext)">
+            <summary>
+            Log method called on error
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Demo.People.WebAPI.Library.TraceExceptionLogger.ShouldLog(System.Web.Http.ExceptionHandling.ExceptionLoggerContext)">
+            <summary>
+            Should log?
+            </summary>
+            <param name="context">ExceptionLoggerContext</param>
+            <returns>Always true</returns>
+        </member>
+        <member name="T:Demo.People.WebAPI.Library.TypeSwitch">
+            <summary>
+            Provides for switching on type (handy for error handling)
+            <para>From: http://stackoverflow.com/questions/11277036/typeswitching-in-c-sharp</para>
+            
+            </summary>
+        </member>
+        <member name="T:Demo.People.WebAPI.Library.TypeSwitch.CaseInfo">
+            <summary>
+            Case Info
+            </summary>
+        </member>
+        <member name="P:Demo.People.WebAPI.Library.TypeSwitch.CaseInfo.IsDefault">
+            <summary>
+            Is Default Case
+            </summary>
+        </member>
+        <member name="P:Demo.People.WebAPI.Library.TypeSwitch.CaseInfo.Target">
+            <summary>
+            Type to switch on
+            </summary>
+        </member>
+        <member name="P:Demo.People.WebAPI.Library.TypeSwitch.CaseInfo.Action">
+            <summary>
+            Thing to do if this case selected
+            </summary>
+        </member>
+        <member name="M:Demo.People.WebAPI.Library.TypeSwitch.Do(System.Object,Demo.People.WebAPI.Library.TypeSwitch.CaseInfo[])">
+            <summary>
+            Do the action
+            </summary>
+            <param name="source">Source of the action</param>
+            <param name="cases">Cases</param>
+        </member>
+        <member name="M:Demo.People.WebAPI.Library.TypeSwitch.Case``1(System.Action)">
+            <summary>
+            Case Block
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="action">Action</param>
+            <returns>Case Information</returns>
+        </member>
+        <member name="M:Demo.People.WebAPI.Library.TypeSwitch.Case``1(System.Action{``0})">
+            <summary>
+            Case Block (Generic)
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="action">Action</param>
+            <returns>Case Information</returns>
+        </member>
+        <member name="M:Demo.People.WebAPI.Library.TypeSwitch.Default(System.Action)">
+            <summary>
+            Default Case Block
+            </summary>
+            <param name="action">Action</param>
+            <returns>Case Information</returns>
+        </member>
+        <member name="T:Demo.People.WebAPI.Library.ValidationException">
+            <summary>
+            Validation Exception
+            </summary>
+        </member>
+        <member name="M:Demo.People.WebAPI.Library.ValidationException.#ctor">
+            <summary>
+            CTOR
+            </summary>
+        </member>
+        <member name="M:Demo.People.WebAPI.Library.ValidationException.#ctor(System.String)">
+            <summary>
+            CTOR
+            </summary>
+            <param name="message">Message</param>
+        </member>
+        <member name="M:Demo.People.WebAPI.Library.ValidationException.#ctor(System.String,System.Exception)">
+            <summary>
+            CTOR
+            </summary>
+            <param name="message">Message</param>
+            <param name="innerException">Inner Exception</param>
+        </member>
+        <member name="M:Demo.People.WebAPI.Library.ValidationException.#ctor(System.String,System.String,System.Collections.Generic.IList{System.String})">
+            <summary>
+            CTOR
+            </summary>
+            <param name="message">Message</param>
+            <param name="resourceName"></param>
+            <param name="validationErrors"></param>
+        </member>
+        <member name="M:Demo.People.WebAPI.Library.ValidationException.#ctor(System.String,System.String,System.Collections.Generic.IList{System.String},System.Exception)">
+            <summary>
+            CTOR
+            </summary>
+            <param name="message">Message</param>
+            <param name="resourceName">The name of the thing being validated</param>
+            <param name="validationErrors">List of validation errors</param>
+            <param name="innerException">Inner Exception</param>
+        </member>
+        <member name="M:Demo.People.WebAPI.Library.ValidationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            De-Serializer CTOR
+            </summary>
+            <param name="info">SerializationInfo</param>
+            <param name="context">StreamingContext</param>
+        </member>
+        <member name="P:Demo.People.WebAPI.Library.ValidationException.ResourceName">
+            <summary>
+            The name of the thing being validated
+            </summary>
+        </member>
+        <member name="P:Demo.People.WebAPI.Library.ValidationException.ValidationErrors">
+            <summary>
+            List of validation errors
+            </summary>
+        </member>
+        <member name="M:Demo.People.WebAPI.Library.ValidationException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serializer
+            </summary>
+            <param name="info">SerializationInfo</param>
+            <param name="context">StreamingContext</param>
+        </member>
+        <member name="M:Demo.People.WebAPI.Library.ValidationException.ValidationText(System.String)">
+            <summary>
+            Nicely formatted validation list
+            </summary>
+            <param name="separator">Separator</param>
+            <returns>List as a string</returns>
+        </member>
+        <member name="T:Demo.People.WebAPI.Models.VersionInfo">
+            <summary>
+            Version Information
+            </summary>
+        </member>
+        <member name="P:Demo.People.WebAPI.Models.VersionInfo.Major">
+            <summary>
+            Major number (1st)
+            </summary>
+        </member>
+        <member name="P:Demo.People.WebAPI.Models.VersionInfo.Minor">
+            <summary>
+            Minor number (2nd)
+            </summary>
+        </member>
+        <member name="P:Demo.People.WebAPI.Models.VersionInfo.Build">
+            <summary>
+            Build (3rd)
+            </summary>
+        </member>
+        <member name="P:Demo.People.WebAPI.Models.VersionInfo.Private">
+            <summary>
+            Private (4th)
+            </summary>
+        </member>
+        <member name="P:Demo.People.WebAPI.Models.VersionInfo.Version">
+            <summary>
+            Dotted Version
+            </summary>
+        </member>
+        <member name="P:Demo.People.WebAPI.Models.VersionInfo.Copyright">
+            <summary>
+            Copyright
+            </summary>
+        </member>
+    </members>
+</doc>
